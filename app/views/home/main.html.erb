@@ -1,0 +1,39 @@
+<style>
+#resume_box { background-color: #99CCFF; width: 600px;}
+
+#username_box { background-color: #99CCCC; width: 600px;}
+</style>
+<div id="resume_box">
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'preload'), :html => {:multipart => true} do |f| %>  
+  	<ul>
+    <% @resume.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <p>  
+    <%= f.file_field :resume_file %>  <%= f.submit "Upload resume" %> 
+  </p>   
+  <p>
+	We'll convert it to view online and download as DOC, PDF, HTML or TXT
+  </p>
+<% end %>
+</div>
+
+<div id="username_box">
+	<p>
+		Register to get your personalized resumelink
+	  </p>	
+	<%= form_for @user, :url => url_for(:controller => 'users', :action => 'preload') do |f| %>  
+	  	<ul>
+	    <% @user.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  	<p>  
+		    http://wwww.resumelink.org/<%= f.text_field :username %>  
+		  </p>
+		<div id="msgbox"></div>
+	  <p><%= f.submit "Resister" %></p>  
+	<% end %>
+	
+</div>

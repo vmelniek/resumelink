@@ -1,0 +1,7 @@
+My User id <%= @user.id %><br>
+My name: <%= @user.name %><br>
+My email: <%= @user.email %><br>
+
+Change Password: <a href="/">click here</a></br></br>
+
+Currently I have uploaded resumes: <%= @user.resume.nil? ? "No uploaded resumes" : @user.resume.filename %>
